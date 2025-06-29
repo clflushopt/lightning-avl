@@ -7,6 +7,47 @@ This repo is a small demo to show how to specialize lookups in AVL trees using R
 P.S: I was initially going to use LLVM[^1] via Inkwell but that turned out to be trickier to package
 so I wrote some very basic, non-optimized, non-SIMD organic x64 assembly instead. 
 
+## Numbers
+
+* 1000 nodes and 1,000,000 lookups
+
+```
+--- Summary (1000000 Lookups) ---
+Generic Rust:            43.91ms
+Dynasm JIT:              23.36ms (Compile: 706.872µs)
+
+Speedup (Dynasm vs Generic):   1.88x   
+```
+
+* 10,000 nodes and 10,000,000 lookups 
+
+```
+--- Summary (10000000 Lookups) ---
+Generic Rust:           682.74ms
+Dynasm JIT:             442.37ms (Compile: 6.255281ms)
+
+Speedup (Dynasm vs Generic):   1.54x
+```
+
+* 100,000 nodes and 10,000,000 lookups
+
+```
+--- Summary (10000000 Lookups) ---
+Generic Rust:              1.17s
+Dynasm JIT:             759.47ms (Compile: 60.825003ms)
+
+Speedup (Dynasm vs Generic):   1.54x
+```
+
+* 1,000,000 nodes and 100,000,000 lookups
+```
+--- Summary (100000000 Lookups) ---
+Generic Rust:             24.55s
+Dynasm JIT:               14.25s (Compile: 768.428766ms)
+
+Speedup (Dynasm vs Generic):   1.72x
+```
+
 ## What is specialization in the context of data structures
 
 Consider a standard, ahead-of-time (AOT) compiled data structure, like `std::map` in C++ (often a
@@ -100,3 +141,5 @@ This code is under the [MIT License]
 which inspired me to hack this up, the post itself uses LLVM.
 
 [^2]: There's nothing new under the sun this is the idea of Futamura Projections.
+
+
