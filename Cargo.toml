@@ -1,0 +1,9 @@
+[package]
+name = "lightning-avl"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+dynasm = "3.2.1"
+dynasmrt = "3.2.1"
+rand = "0.9.1"
