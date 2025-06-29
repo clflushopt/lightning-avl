@@ -96,7 +96,7 @@ specialize the traversal itself.
 
 This code is under the [MIT License]
 
-[^1]: I was minding my own business when I was nerd snipped by this [post](https://blog.christianperone.com/2009/11/a-method-for-jiting-algorithms-and-data-structures-with-llvm/)
+[^1]: I was minding my own business when I was nerd snipped by this [post](https://archive.is/sERLq)
 which inspired me to hack this up, the post itself uses LLVM.
 
 [^2]: There's nothing new under the sun this is the idea of Futamura Projections.
